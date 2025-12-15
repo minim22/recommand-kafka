@@ -24,8 +24,15 @@ bootJar {
 
 jar {
     enabled = true
-    // jar명 고정
-    archiveFileName = 'recommend-kafka.jar'
+
+    // 1. 파일명 앞부분 (recommend-kafka)
+    archiveBaseName = 'recommend-kafka'
+    
+    // 2. 버전 (0.0.1-SNAPSHOT)
+    archiveVersion = '0.0.1-SNAPSHOT'
+    
+    // 3. 꼬리표 제거 (중요! 이걸 비워야 '-plain'이 안 붙습니다)
+    archiveClassifier = ''
 }
 
 publishing {
@@ -54,8 +61,11 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-
+    
     implementation 'org.slf4j:slf4j-api'
+
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.kafka:spring-kafka-test'

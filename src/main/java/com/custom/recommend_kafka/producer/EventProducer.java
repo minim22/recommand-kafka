@@ -36,12 +36,10 @@ public class EventProducer {
             if (ex == null) {
                 // 성공 시: 디버그 로그 (운영 환경 노이즈 방지)
                 // result.getRecordMetadata()를 통해 파티션과 오프셋 확인 가능
-                log.debug("Kafka Send Success: topic=[{}], key=[{}], offset=[{}]",
-                        topic, key, result.getRecordMetadata().offset());
+                log.debug("Kafka Send Success: topic=[{}], key=[{}], offset=[{}]",topic, key, result.getRecordMetadata().offset());
             } else {
                 // 실패 시: 에러 로그 (추후 모니터링 알람 연동 포인트)
-                log.error("Kafka Send Failed: topic=[{}], key=[{}], payload=[{}]",
-                        topic, key, payload, ex);
+                log.error("Kafka Send Failed: topic=[{}], key=[{}], payload=[{}]",topic, key, payload, ex);
             }
         });
     }
