@@ -11,6 +11,12 @@ public final class TopicConstants {
     // 3. 유저 활동 로그 토픽 (Activity Service -> Recommend Service)
     public static final String USER_ACTIVITY_TOPIC = "user.activity.log";
 
+    // 4. 게임 데이터 수집 토픽(Content Service -> Recommend Service)
+    public static final String GAME_INGESTION_TOPIC = "content.game.ingestion";
+
+    // 5. 음악 데이터 수집 토픽(Content Service -> Recommend Service)
+    public static final String MUSIC_INGESTION_TOPIC = "content.music.ingestion";
+
     // 인스턴스화 방지 (Utility Class)
     private TopicConstants() {
         throw new IllegalStateException("Utility class");
